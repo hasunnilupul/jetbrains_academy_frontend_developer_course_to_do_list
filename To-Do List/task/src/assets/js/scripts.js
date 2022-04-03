@@ -2,7 +2,7 @@ const addNewTaskInput = document.querySelector('#input-task');
 const addNewTaskBtn = document.querySelector('#add-task-button');
 const taskList = document.querySelector('#task-list');
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let tasks;
 
 const addNewTask = (task) => {
     const newTask = document.createElement('li');
@@ -18,6 +18,9 @@ const addNewTask = (task) => {
                 </svg>
             </button>
     `;
+    if (task.completed) {
+        newTask.children[0].checked = true;
+    }
     taskList.appendChild(newTask);
 };
 
@@ -34,11 +37,11 @@ addNewTaskBtn.addEventListener('click', () => {
         localStorage.setItem("tasks", JSON.stringify(tasks))
         addNewTask(newTask);
         addNewTaskInput.value = '';
-        addNewTaskBtn.disabled = true;
     }
 });
 
 window.onload = () => {
+    tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     tasks.forEach(task => {
         if (!task.deleted) {
             addNewTask(task);
