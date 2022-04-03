@@ -1,0 +1,17 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: because it runs endlessly long
+- text: because it runs an infinite number of times
+- text: because it consumes an infinite amount of energy
+- text: because it runs endlessly fast
+files:
+- name: main.js
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/9122#comment
+status: Solved
+record: -1
